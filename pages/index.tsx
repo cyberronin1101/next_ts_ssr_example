@@ -1,8 +1,9 @@
 import { Button, Htag, P, Rating, Tag } from "../components";
+import { withLayout } from "../layout";
 
-export default function Home() {
+function Home() {
   return (
-    <div>
+    <>
       <Htag tag={"h1"}>Текст</Htag>
       <Button appearance={"primary"} arrow={"right"}>
         Кнопка
@@ -25,6 +26,8 @@ export default function Home() {
       </Tag>
       <Tag color={"primary"}>Primary</Tag>
       <Rating rating={2} isEditable={true} />
-    </div>
+    </>
   );
 }
+
+export default withLayout(Home);
