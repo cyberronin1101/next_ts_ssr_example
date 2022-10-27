@@ -21,7 +21,7 @@
 
 .primary {
 	color: var(--white);
-	background: var(--primery);
+	background: var(--primary);
 }
 
 .primary svg {
@@ -29,7 +29,7 @@
 }
 
 .primary:hover {
-	background: var(--primery-hover);
+	background: var(--primary-hover);
 }
 
 .ghost {
@@ -40,7 +40,7 @@
 
 .ghost:hover {
 	color: var(--white);
-	background-color: var(--primery-hover);
+	background-color: var(--primary-hover);
 }
 
 .ghost:hover svg {

@@ -48,7 +48,7 @@
 }
 
 .primary {
-	color: var(--primery);
-	border: 1px solid var(--primery);
+	color: var(--primary);
+	border: 1px solid var(--primary);
 	background: none;
 }
