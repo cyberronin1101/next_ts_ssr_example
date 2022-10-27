@@ -43,8 +43,14 @@
 	border-left: 1px solid #DFDFDF;
 }
 
-.secondBlockOpened:last-child {
+.secondLevelBlock {
+	display: none;
+
 	margin-bottom: 20px;
+}
+
+.secondLevelBlockOpened {
+	display: block;
 }
 
 .thirdLevel {
