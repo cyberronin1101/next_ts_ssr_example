@@ -11,7 +11,7 @@ export type TopPageAdvantage = {
   description: string;
 };
 
-export type hhData = {
+export type HhData = {
   _id: string;
   count: number;
   juniorSalary: number;
@@ -35,5 +35,5 @@ export type TopPageModel = {
   advantages: TopPageAdvantage[];
   createdAt: Date;
   updatedAt: Date;
-  hh: hhData;
+  hh: HhData;
 };

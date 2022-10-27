@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/context" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/helpers" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/layout" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/page-components" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pages" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/types" isTestSource="false" />
     </content>

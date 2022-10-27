@@ -6,12 +6,19 @@ import { TopLevelCategory, TopPageModel } from "../../types/Page.type";
 import { ParsedUrlQuery } from "querystring";
 import { ProductModel } from "../../types/Product.type";
 import { firstLevelMenu } from "../../helpers/helpers";
+import { TopPageComponent } from "../../page-components";
 
-function Course({ menu, page, products }: CourseProps) {
-  return <></>;
+function TopPage({ firstCategory, page, products }: TopPageProps) {
+  return (
+    <TopPageComponent
+      firstCategory={firstCategory}
+      page={page}
+      products={products}
+    />
+  );
 }
 
-export default withLayout(Course);
+export default withLayout(TopPage);
 
 export const getStaticPaths: GetStaticPaths = async () => {
   let paths: string[] = [];
@@ -34,7 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<CourseProps> = async ({
+export const getStaticProps: GetStaticProps<TopPageProps> = async ({
   params,
 }: GetStaticPropsContext<ParsedUrlQuery>) => {
   if (!params)
@@ -90,7 +97,7 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({
   }
 };
 
-type CourseProps = {
+type TopPageProps = {
   menu: MenuItem[];
   firstCategory: TopLevelCategory;
   page: TopPageModel;
