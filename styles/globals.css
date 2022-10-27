@@ -19,7 +19,7 @@ a {
 	box-sizing: border-box;
 }
 
-*:focus:active {
+*:active {
 	outline: none;
 }
 
