@@ -1,6 +1,6 @@
 import styles from "./Menu.module.css";
 import cn from "classnames";
-import { useContext } from "react";
+import { useContext, KeyboardEvent } from "react";
 import { AppContext } from "../../context/app.context";
 import { FirstLevelMenuItem, PageItem } from "../../types/Menu.type";
 import Link from "next/link";
@@ -36,6 +36,13 @@ export const Menu = (): JSX.Element => {
       height: 0,
       marginBottom: 0,
     },
+  };
+
+  const openSecondLevelKey = (e: KeyboardEvent, category: string) => {
+    if (e.code === "Space" || e.code === "Enter") {
+      e.preventDefault();
+      openSecondLeve(category);
+    }
   };
 
   const openSecondLeve = (secondCategory: string) => {
@@ -91,6 +98,10 @@ export const Menu = (): JSX.Element => {
           return (
             <div key={menuItem._id.secondCategory}>
               <div
+                tabIndex={0}
+                onKeyDown={(e) =>
+                  openSecondLevelKey(e, menuItem._id.secondCategory)
+                }
                 className={styles.secondLevel}
                 onClick={() => openSecondLeve(menuItem._id.secondCategory)}
               >
@@ -104,7 +115,11 @@ export const Menu = (): JSX.Element => {
                 animate={menuItem.isOpen ? "visible" : "hidden"}
                 className={cn(styles.secondLevelBlock)}
               >
-                {buildThirdLevel(menuItem.pages, firstLevelMenuItem.route)}
+                {buildThirdLevel(
+                  menuItem.pages,
+                  firstLevelMenuItem.route,
+                  menuItem.isOpen ?? false
+                )}
               </motion.div>
             </div>
           );
@@ -112,11 +127,16 @@ export const Menu = (): JSX.Element => {
       </div>
     );
   };
-  const buildThirdLevel = (pages: PageItem[], route: string) => {
+  const buildThirdLevel = (
+    pages: PageItem[],
+    route: string,
+    isOpen: boolean
+  ) => {
     return pages.map((menuItem) => {
       return (
         <motion.div key={menuItem._id} variants={variantsChildren}>
           <Link
+            tabIndex={isOpen ? 0 : -1}
             href={`/${route}/${menuItem.alias}`}
             className={cn(styles.thirdLevel, {
               [styles.thirdLevelActive]:
