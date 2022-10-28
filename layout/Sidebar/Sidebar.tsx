@@ -4,6 +4,7 @@ import LogoSvg from "../Layout/logo.svg";
 import cn from "classnames";
 import styles from "./Sidebar.module.css";
 import Link from "next/link";
+import { Search } from "../../components";
 
 export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
   return (
@@ -11,7 +12,7 @@ export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
       <Link href={"/"}>
         <LogoSvg className={styles.logo} />
       </Link>
-      <div>поиск</div>
+      <Search />
       <Menu />
     </div>
   );
