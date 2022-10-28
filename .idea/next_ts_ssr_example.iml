@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/page-components" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pages" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/types" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/hooks" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
