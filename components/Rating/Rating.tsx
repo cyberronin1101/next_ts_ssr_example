@@ -17,7 +17,7 @@ export const Rating = forwardRef(
       rating,
       setRating,
       className,
-
+      error,
       ...props
     }: RatingProps,
     ref: ForwardedRef<HTMLDivElement>
@@ -78,10 +78,17 @@ export const Rating = forwardRef(
     };
 
     return (
-      <div className={cn(className)} {...props} ref={ref}>
+      <div
+        className={cn(className, styles.wrapper, {
+          [styles.error]: error,
+        })}
+        {...props}
+        ref={ref}
+      >
         {ratingArray.map((el, idx) => (
           <span key={idx}>{el}</span>
         ))}
+        {error && <span className={styles.errorMessage}>{error.message}</span>}
       </div>
     );
   }

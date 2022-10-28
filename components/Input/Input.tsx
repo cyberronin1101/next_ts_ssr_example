@@ -5,11 +5,20 @@ import { ForwardedRef, forwardRef } from "react";
 
 export const Input = forwardRef(
   (
-    { className, ...props }: InputProps,
+    { className, error, ...props }: InputProps,
     ref: ForwardedRef<HTMLInputElement>
   ): JSX.Element => {
     return (
-      <input className={cn(styles.input, className)} {...props} ref={ref} />
+      <div className={cn(styles.inputWrapper, className)}>
+        <input
+          className={cn(styles.input, {
+            [styles.error]: error,
+          })}
+          {...props}
+          ref={ref}
+        />
+        {error && <span className={styles.errorMessage}>{error.message}</span>}
+      </div>
     );
   }
 );
