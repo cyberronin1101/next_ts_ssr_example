@@ -8,8 +8,9 @@ import { declOfNumber, priceRu } from "../../helpers/helpers";
 import { Divider } from "../Divider/Divider";
 import Image from "next/image";
 import cn from "classnames";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Review } from "../Review/Review";
+import { ReviewForm } from "../ReviewForm/ReviewForm";
 
 export const Product = ({ product }: ProductProps): JSX.Element => {
   const [isReviewOpen, setIsReviewOpen] = useState(false);
@@ -89,31 +90,31 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
 
         <div className={styles.actions}>
           <Button appearance={"primary"}>Узнать подробнее</Button>
-          {product.reviewCount > 0 && (
-            <Button
-              appearance={"ghost"}
-              arrow={isReviewOpen ? "down" : "right"}
-              className={styles.reviewButton}
-              onClick={() => setIsReviewOpen(!isReviewOpen)}
-            >
-              Чиать отзывы
-            </Button>
-          )}
+          <Button
+            appearance={"ghost"}
+            arrow={isReviewOpen ? "down" : "right"}
+            className={styles.reviewButton}
+            onClick={() => setIsReviewOpen(!isReviewOpen)}
+          >
+            Чиать отзывы
+          </Button>
         </div>
       </Card>
-      {product.reviewCount > 0 && (
-        <Card
-          color={"blue"}
-          className={cn(styles.reviews, {
-            [styles.opened]: isReviewOpen,
-            [styles.closed]: !isReviewOpen,
-          })}
-        >
-          {product.reviews.map((review) => (
-            <Review key={review._id} review={review} />
-          ))}
-        </Card>
-      )}
+      <Card
+        color={"blue"}
+        className={cn(styles.reviews, {
+          [styles.opened]: isReviewOpen,
+          [styles.closed]: !isReviewOpen,
+        })}
+      >
+        {product.reviews.map((review) => (
+          <Fragment key={review._id}>
+            <Review review={review} />
+            <Divider />
+          </Fragment>
+        ))}
+        <ReviewForm productId={product._id} />
+      </Card>
     </>
   );
 };
