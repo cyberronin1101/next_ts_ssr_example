@@ -11,6 +11,7 @@ import cn from "classnames";
 import { Fragment, useState } from "react";
 import { Review } from "../Review/Review";
 import { ReviewForm } from "../ReviewForm/ReviewForm";
+import { API } from "../../helpers/api";
 
 export const Product = ({ product }: ProductProps): JSX.Element => {
   const [isReviewOpen, setIsReviewOpen] = useState(false);
@@ -19,7 +20,7 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
       <Card className={styles.product}>
         <div className={styles.logo}>
           <Image
-            src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
+            src={API.root + product.image}
             alt={product.title}
             width={70}
             height={70}

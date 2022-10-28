@@ -10,3 +10,7 @@ export type ReviewFormType = {
   description: string;
   rating: number;
 };
+
+export type ReviewSentResponseType = {
+  message: string;
+};

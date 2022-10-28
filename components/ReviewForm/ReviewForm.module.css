@@ -27,7 +27,8 @@
 	gap: 20px;
 }
 
-.success {
+.success,
+.error {
 	position: relative;
 
 	margin-top: 20px;
@@ -36,16 +37,25 @@
 	background: var(--green-light);
 }
 
+.error {
+	background: var(--red-light);
+}
+
 .successTitle {
 	font-weight: bold;
 }
 
-.close {
+.close,
+.errorClose {
 	position: absolute;
 	top: 20px;
 	right: 20px;
 
 	cursor: pointer;
+}
+
+.errorClose path {
+	stroke: var(--red);
 }
 
 @media screen and (max-width: 1100px) {
