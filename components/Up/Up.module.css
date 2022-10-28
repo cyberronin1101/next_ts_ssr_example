@@ -2,21 +2,4 @@
 	position: fixed;
 	right: 50px;
 	bottom: 50px;
-
-	display: block;
-
-	padding: 10px;
-
-	cursor: pointer;
-
-	border: none;
-
-	border-radius: 10px;
-
-	background: var(--primary);
-	box-shadow: 0 4px 4px rgb(0 0 0 / 20%);
-}
-
-.up:hover {
-	background: var(--primary-hover);
 }
