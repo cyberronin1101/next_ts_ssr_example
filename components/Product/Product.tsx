@@ -8,15 +8,29 @@ import { declOfNumber, priceRu } from "../../helpers/helpers";
 import { Divider } from "../Divider/Divider";
 import Image from "next/image";
 import cn from "classnames";
-import { Fragment, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import { Review } from "../Review/Review";
 import { ReviewForm } from "../ReviewForm/ReviewForm";
 import { API } from "../../helpers/api";
 
-export const Product = ({ product }: ProductProps): JSX.Element => {
+export const Product = ({
+  product,
+  className,
+  ...props
+}: ProductProps): JSX.Element => {
   const [isReviewOpen, setIsReviewOpen] = useState(false);
+  const reviewRef = useRef<HTMLDivElement>(null);
+
+  const scrollToReview = () => {
+    setIsReviewOpen(true);
+    reviewRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
-    <>
+    <div className={className} {...props}>
       <Card className={styles.product}>
         <div className={styles.logo}>
           <Image
@@ -54,8 +68,10 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
         <div className={styles.priceTitle}>цена</div>
         <div className={styles.creditTitle}>кредит</div>
         <div className={styles.rateTitle}>
-          {product.reviewCount}&nbsp;
-          {declOfNumber(product.reviewCount, ["отзыв", "отзыва", "отзывов"])}
+          <a href="#ref" onClick={scrollToReview}>
+            {product.reviewCount}&nbsp;
+            {declOfNumber(product.reviewCount, ["отзыв", "отзыва", "отзывов"])}
+          </a>
         </div>
 
         <Divider className={styles.hr} />
@@ -102,6 +118,7 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
         </div>
       </Card>
       <Card
+        ref={reviewRef}
         color={"blue"}
         className={cn(styles.reviews, {
           [styles.opened]: isReviewOpen,
@@ -116,6 +133,6 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
         ))}
         <ReviewForm productId={product._id} />
       </Card>
-    </>
+    </div>
   );
 };

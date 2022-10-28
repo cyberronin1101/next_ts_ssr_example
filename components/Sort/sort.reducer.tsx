@@ -7,6 +7,10 @@ export type SortActions =
     }
   | {
       type: SortEnum.Price;
+    }
+  | {
+      type: "reset";
+      payload: ProductModel[];
     };
 
 export type SortReducerState = {
@@ -33,6 +37,12 @@ export const SortReducer = (
         products: state.products.sort((a, b) => {
           return a.price > b.price ? -1 : 1;
         }),
+      };
+    }
+    case "reset": {
+      return {
+        sort: SortEnum.Rating,
+        products: action.payload,
       };
     }
     default:
