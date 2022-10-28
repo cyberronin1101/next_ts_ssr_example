@@ -32,4 +32,17 @@ export const firstLevelMenu: FirstLevelMenuItem[] = [
   },
 ];
 
-export const priceRu = (price: number) => price.toLocaleString("ru-RU") + " ₽";
+export const priceRu = (price: number) =>
+  price.toLocaleString("ru-RU") + "\xa0₽";
+
+export const declOfNumber = (
+  count: number,
+  titles: [one: string, two: string, five: string]
+) => {
+  const value = Math.abs(count) % 100;
+  const num = count % 10;
+  if (value > 10 && value < 20) return titles[2];
+  if (num > 1 && num < 5) return titles[1];
+  if (num == 1) return titles[0];
+  return titles[2];
+};

@@ -31,5 +31,6 @@ export type ProductModel = {
   reviews: ReviewModel[];
   reviewCount: number;
   reviewAvg?: number;
-  advantages: string;
+  advantages?: string;
+  disadvantages?: string;
 };

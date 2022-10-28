@@ -1,6 +1,6 @@
 import styles from "./TopPageComponent.module.css";
 import { TopPageComponentProps } from "./TopPageComponent.props";
-import { Advantages, HhData, Htag, Sort, Tag } from "../../components";
+import { Advantages, HhData, Htag, Product, Sort, Tag } from "../../components";
 import { TopLevelCategory } from "../../types/Page.type";
 import { SortEnum } from "../../components/Sort/Sort.props";
 import { useReducer } from "react";
@@ -38,7 +38,7 @@ export const TopPageComponent = ({
       <div>
         {sortedProducts &&
           sortedProducts.map((product) => {
-            return <div key={product._id}>{product.title}</div>;
+            return <Product key={product._id} product={product} />;
           })}
       </div>
 

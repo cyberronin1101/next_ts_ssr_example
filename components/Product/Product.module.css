@@ -1,0 +1,168 @@
+.product {
+	display: grid;
+
+	margin-bottom: 30px;
+	padding: 30px;
+	grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] auto [pricestart] auto [priceend] 20px [creditstart] auto [creditend] 20px [ratestart] auto [end];
+}
+
+.logo {
+	grid-column: start / logoend;
+	grid-row: 1 / span 2;
+}
+
+.title,
+.tags {
+	grid-column: titlestart / middle;
+}
+
+.price,
+.priceTitle {
+	grid-column: pricestart / priceend;
+}
+
+.credit,
+.creditTitle {
+	grid-column: creditstart / creditend;
+}
+
+.rating,
+.rateTitle {
+	grid-column: ratestart / end;
+}
+
+.hr,
+.description,
+.actions {
+	grid-column: start / end;
+}
+
+.feature {
+	grid-column: start / middle;
+}
+
+.advBlock {
+	grid-column: middle /end;
+}
+
+.category {
+	margin-top: 7px;
+}
+
+.logo img {
+	overflow: hidden;
+
+	max-width: 70px;
+	max-height: 70px;
+
+	border-radius: 5px;
+}
+
+.title {
+	align-self: flex-end;
+
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 27px;
+}
+
+.price,
+.credit {
+	align-self: flex-end;
+
+	font-size: 20px;
+	line-height: 27px;
+}
+
+.oldPrice {
+	margin-left: 5px;
+}
+
+.month {
+	color: var(--gray);
+
+	font-size: 14px;
+	line-height: 19px;
+}
+
+.rating {
+	align-self: flex-end;
+}
+
+.priceTitle,
+.creditTitle,
+.rateTitle {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 19px;
+}
+
+.description {
+	margin-bottom: 15px;
+
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.reviewButton {
+	margin-left: 20px;
+}
+
+.advBlock {
+	font-size: 16px;
+	line-height: 22px;
+}
+
+.advTitle {
+	margin-bottom: 5px;
+
+	font-weight: 600;
+}
+
+.advantages {
+	margin-bottom: 20px;
+	padding-left: 15px;
+
+	border-left: 2px solid var(--green);
+}
+
+.advBlock .advantages:last-child {
+	margin-bottom: 0;
+}
+
+.disadvantages {
+	padding-left: 15px;
+
+	border-left: 2px solid var(--red);
+}
+
+.char {
+	display: grid;
+	align-items: baseline;
+
+	padding-right: 60px;
+
+	font-size: 16px;
+	line-height: 32px;
+	grid-template-columns: auto 1fr auto;
+	gap: 10px;
+}
+
+.charName {
+	font-weight: bold;
+}
+
+.charDots {
+	margin-bottom: 5px;
+
+	border-bottom: 1px dotted var(--gray-light);
+
+	font-size: 10px;
+	line-height: 10px;
+}
+
+.charDots::after {
+	display: inline-block;
+
+	content: "";
+}
