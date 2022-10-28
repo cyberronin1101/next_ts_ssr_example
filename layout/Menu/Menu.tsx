@@ -97,8 +97,6 @@ export const Menu = (): JSX.Element => {
                 {menuItem._id.secondCategory}
               </div>
 
-              {/*[styles.secondLevelBlockOpened]: menuItem.isOpen,*/}
-
               <motion.div
                 layout
                 variants={variants}

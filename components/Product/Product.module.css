@@ -304,21 +304,11 @@
 	}
 }
 
-.closed {
+.reviews {
 	overflow: hidden;
 
-	max-height: 0;
-	padding: 0;
-}
-
-.opened {
-	max-height: none;
-	padding: 30px;
-}
-
-.reviews {
-	margin-top: -30px;
 	margin-bottom: 30px;
+	padding: 30px;
 }
 
 .rateTitle a {
