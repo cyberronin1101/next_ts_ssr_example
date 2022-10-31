@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
   );
 };
 
-export const withLayout = <T extends Record<string, unknown> & AppContextType>(
+export const withLayout = <T extends JSX.IntrinsicAttributes & AppContextType>(
   Component: FunctionComponent<T>
 ) => {
   return function withLayoutComponent(props: T): JSX.Element {
